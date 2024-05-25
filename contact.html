@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link of CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>Send Us An Email</h2>
+        <form id="feedBack" name="feedBack" onsubmit="sendEmail(event)">
+            <div class="form-group">
+                <p>Contact Us If You Have Any Feedback</p>
+                <label for="emailAddress">
+                    Email Address: <span>*</span>
+                </label>
+                <br>
+                <input type="text" required id="emailAddress" name="emailAddress"> <br>
+                <br>
+                <label for="comments">
+                    Comments: <span>*</span>
+                </label>
+                <br>
+                <textarea required id="comments" name="comments" rows="4" cols="50"></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('emailAddress').value;
+            const comments = document.getElementById('comments').value;
+
+            // URL-encode the email body to handle special characters and new lines
+            const body = `Email Address: ${email}\nComments: ${comments}`;
+            const encodedBody = encodeURIComponent(body);
+
+            const mailtoLink = `mailto:neyakom503@fincainc.com?subject=Feedback&body=${encodedBody}`;
+            
+            // Oepns a new draft email with the linked email above in that format
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
