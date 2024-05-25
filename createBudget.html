@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Budget</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link of CSS file -->
+</head>
+<body>
+    <div class="budget-container">
+        <p><a href="login.html">Back to Dashboard</a></p>
+        <h2>Create New Budget</h2>
+        <div class="income-container">
+            <h1>Income</h1>
+            <label for="week1Income">Week 1 Income:</label>
+            <input type="number" min="0" id="week1Income" name="week1Income"><br>
+            <label for="week2Income">Week 2 Income:</label>
+            <input type="number" min="0" id="week2Income" name="week2Income"><br>
+            <label for="week3Income">Week 3 Income:</label>
+            <input type="number" min="0" id="week3Income" name="week3Income"><br>
+            <label for="week4Income">Week 4 Income:</label>
+            <input type="number" min="0" id="week4Income" name="week4Income"><br><br>
+            <button type="button" id="btnSum">Sum</button>
+            <div>
+                <p>Net Income:</p><blockquote id="netIncome"></blockquote>
+            </div>
+            
+        </div>
+        <div class="expenses-container">
+            <h1>Expenses</h1>
+            <label for="gasExpenses">Gas Expenses</label>
+            <input type="number" name="gasExpenses" id="gasExpenses">
+            <label for="insurance">Insurance</label>
+            <input type="number" name="insurance" id="insurance">
+            <label for="workersComp">Worker's Compensation</label>
+            <input type="number" name="workersComp" id="workersComp">
+            <label for="parking">Parking</label>
+            <input type="number" name="parking" id="parking">
+            <label for="mechanic">Mechanic</label>
+            <input type="number" name="mechanic" id="mechanic">
+        </div>
+    </div>
+</body>
+</html>
