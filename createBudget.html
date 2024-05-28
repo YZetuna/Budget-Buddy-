@@ -20,11 +20,6 @@
             <input type="number" min="0" id="week3Income" name="week3Income"><br>
             <label for="week4Income">Week 4 Income:</label>
             <input type="number" min="0" id="week4Income" name="week4Income"><br><br>
-            <button type="button" id="btnSum">Sum</button>
-            <div>
-                <p>Net Income:</p><blockquote id="netIncome"></blockquote>
-            </div>
-            
         </div>
         <div class="expenses-container">
             <h1>Expenses</h1>
@@ -39,6 +34,23 @@
             <label for="mechanic">Mechanic</label>
             <input type="number" name="mechanic" id="mechanic">
         </div>
+        <div class="totals-container">
+            <h1>Totals</h1>
+            <button type="button" id="btnSum">Display results</button>
+            <div>
+                <p>Gross Income:</p><blockquote id="netIncome"></blockquote>
+            </div>
+            <div>
+                <p>Gross Expenses:</p><blockquote id="netExpenses"></blockquote>
+            </div>
+            <div>
+                <p>Net Total:</p><blockquote id="netTotal"></blockquote>
+            </div>
+            <div>
+                <p>Estimated profit for next week:</p><blockquote id="estimatedProfit"></blockquote>
+            </div>
+        </div>
+        <p><button id="btnSave">Save Budget</button></p>
     </div>
 </body>
 </html>
