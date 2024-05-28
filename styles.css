@@ -62,14 +62,21 @@ button:hover {
 }
 
 .income-container {
-    border: solid black;
-    padding: 5px 5px 5px 5px;
+    border: solid #ccc;
+    padding: 5px 5px 92px 5px;
     float: left;
 }
 
 .expenses-container {
     border: solid #ccc;
-    padding: 5px 5px 100px 205px;
+    padding: 5px 50px 66px 50px;
+    float: left;
+}
+
+.totals-container {
+    border: solid #ccc;
+    padding: 5px 50px 100px 50px;
+    float: left;
 }
 
 h1 {
@@ -136,4 +143,3 @@ h1 {
 .compareBudget .budgetContainer .compareBudget2 h3 {
     text-align: center;
 }
-
