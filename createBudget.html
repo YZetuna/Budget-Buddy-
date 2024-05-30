@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Budget</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link of CSS file -->
+    <script src="javascript/createbudget.js"></script>
 </head>
 <body>
     <div class="budget-container">
@@ -24,24 +25,24 @@
         <div class="expenses-container">
             <h1>Expenses</h1>
             <label for="gasExpenses">Gas Expenses</label>
-            <input type="number" name="gasExpenses" id="gasExpenses">
+            <input type="number" min="0" name="gasExpenses" id="gasExpenses">
             <label for="insurance">Insurance</label>
-            <input type="number" name="insurance" id="insurance">
+            <input type="number" min="0" name="insurance" id="insurance">
             <label for="workersComp">Worker's Compensation</label>
-            <input type="number" name="workersComp" id="workersComp">
+            <input type="number" min="0" name="workersComp" id="workersComp">
             <label for="parking">Parking</label>
-            <input type="number" name="parking" id="parking">
+            <input type="number" min="0" name="parking" id="parking">
             <label for="mechanic">Mechanic</label>
-            <input type="number" name="mechanic" id="mechanic">
+            <input type="number" min="0" name="mechanic" id="mechanic">
         </div>
         <div class="totals-container">
             <h1>Totals</h1>
-            <button type="button" id="btnSum">Display results</button>
+            <button type="button" id="btnResults" onclick="calcResults()">Display results</button>
             <div>
-                <p>Gross Income:</p><blockquote id="netIncome"></blockquote>
+                <p>Gross Income:</p><blockquote id="grossIncome"></blockquote>
             </div>
             <div>
-                <p>Gross Expenses:</p><blockquote id="netExpenses"></blockquote>
+                <p>Gross Expenses:</p><blockquote id="grossExpenses"></blockquote>
             </div>
             <div>
                 <p>Net Total:</p><blockquote id="netTotal"></blockquote>
