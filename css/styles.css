@@ -63,20 +63,23 @@ button:hover {
 
 .income-container {
     border: solid #ccc;
-    padding: 5px 5px 92px 5px;
+    padding: 5px 5px 5px 5px;
     float: left;
+    width: 28%;
 }
 
 .expenses-container {
     border: solid #ccc;
-    padding: 5px 50px 66px 50px;
+    padding: 5px 5px 5px 5px;
     float: left;
+    width: 30%;
 }
 
 .totals-container {
     border: solid #ccc;
-    padding: 5px 50px 100px 50px;
+    padding: 5px 5px 5px 5px;
     float: left;
+    width: 35%;
 }
 
 h1 {
