@@ -95,7 +95,10 @@ Create table BUDGET(
 	BudgetID		integer,
 	CategoryID		integer,
 	Income			money null,
-	Date			date not null default GetDate(),
+	Expenses		money null,
+	Total			money null,
+	EstimatedProfit	money null,
+	TodaysDate		date not null default GetDate(),
 
 	-- Constraints
 	constraint budget_id_pk primary key (BudgetID),
