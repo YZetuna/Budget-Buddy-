@@ -146,3 +146,7 @@ h1 {
 .compareBudget .budgetContainer .compareBudget2 h3 {
     text-align: center;
 }
+
+textarea{
+    resize: none;
+}
