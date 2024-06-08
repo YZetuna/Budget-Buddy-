@@ -31,6 +31,7 @@ function calcResults() {
 
     // estimate next week's profit
     var estimatedProfit = total / 4
+    var estimatedProfitString = "$" + estimatedProfit
     // display next week's estimated profit
-    document.getElementById("estimatedProfit").innerHTML = estimatedProfit
+    document.getElementById("estimatedProfit").innerHTML = estimatedProfitString
 }
