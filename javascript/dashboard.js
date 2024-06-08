@@ -28,4 +28,4 @@ if (hour < 12) {
 let welcomeMessage = document.getElementById("welcomeMessage");
 
 // Set the welcome message text
-welcomeMessage.textContent = "Welcome! Today is " + month + " " + day + ", " + year + ". " + timeOfDayMessage;
+welcomeMessage.textContent = "Welcome! Today is (insert name from db)" + month + " " + day + ", " + year + ". " + timeOfDayMessage;
