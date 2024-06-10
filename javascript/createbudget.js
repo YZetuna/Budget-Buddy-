@@ -9,7 +9,10 @@ function calcResults() {
     var week4income = Number(document.getElementById("week4Income").value)
     var income = week1income + week2income + week3income + week4income
     // display gross income
-    var incomeString = "$" + income
+    var incomeString = income.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    })
     document.getElementById("grossIncome").innerHTML = incomeString
 
     //calculate gross expenses
@@ -20,13 +23,19 @@ function calcResults() {
     var mechanic = Number(document.getElementById("mechanic").value)
     var expenses = gasExpenses + insurance + workersComp + parking + mechanic
     // display gross expenses
-    var expensesString = "$" + expenses
+    var expensesString = expenses.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    })
     document.getElementById("grossExpenses").innerHTML = expensesString
 
     // calculate net total
     var total = income - expenses
     // display net total
-    var totalString = "$" + total
+    var totalString = total.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    })
     document.getElementById("netTotal").innerHTML = totalString
 
     // estimate next week's profit
