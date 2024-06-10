@@ -8,7 +8,7 @@ GO
 Use BudgetBuddy
 GO
 
-create table USER(
+create table Profile(
   UserID integer,
   -- Attributes
   Username varchar(25) not null,
@@ -21,7 +21,7 @@ create table USER(
 
 GO
 
-INSERT INTO USER
+INSERT INTO Profile
 	(UserID, Username, Email, Password)
 Values
 -- To add More values here to test them
@@ -38,16 +38,16 @@ Create table CATEGORY(
 
 	-- Constraints
 	constraint category_id_pk primary key (CategoryID),
-	constraint userid_category_fk foreign key(UserID) references USER(UserID)
+	constraint userid_category_fk foreign key(UserID) references Profile(UserID)
 );
 
 GO
-INSERT INTO CATEGORY
+/*INSERT INTO CATEGORY
 	(CategoryID,UserID,category_name)
 Values
 
 ;
-GO
+GO*/
 
 
 Create table ACCOUNT(
@@ -58,16 +58,16 @@ Create table ACCOUNT(
 
 	-- Constraints
 	constraint account_id_pk primary key (AccountID),
-	constraint userid_account_fk foreign key (UserID) references USER(UserID)
+	constraint userid_account_fk foreign key (UserID) references Profile(UserID)
 );
 GO
 
-INSERT INTO ACCOUNT
+/*INSERT INTO ACCOUNT
 	(AccountID,UserID,account_name)
 Values
 
 ;
-GO
+GO*/
 
 Create table TRANSACTIONS(
 	TransactionID	integer,
@@ -81,15 +81,15 @@ Create table TRANSACTIONS(
 	constraint transactions_id_pk primary key (TransactionID),
 	constraint categoryid_transactions foreign key (CategoryID) references CATEGORY(CategoryID),
 	constraint accountid_transactions_fk foreign key (AccountID) references ACCOUNT(AccountID),
-	constraint userid_transactions_fk foreign key (UserID) references USER(UserID)
+	constraint userid_transactions_fk foreign key (UserID) references Profile(UserID)
 );
 GO
 
-INSERT INTO TRANSACTIONS
+/*INSERT INTO TRANSACTIONS
 	(TransactionID, AccountID, CategoryID, UserID, Notes, Amount)
 Values
 
-;
+;*/
 
 Create table BUDGET(
 	BudgetID		integer,
@@ -106,8 +106,8 @@ Create table BUDGET(
 );
 GO
 
-INSERT INTO BUDGET
+/*INSERT INTO BUDGET
 	(BudgetID,CategoryID,Income,Date)
 Values
 
-;
+;*/
