@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Menu</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="javascript/dashboard.js" defer></script>
+    <title>Notifications</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,34 +74,34 @@
         }
         .content {
             display: flex;
+            flex-direction: column;
             width: 100%;
-            max-width: 1200px;
+            max-width: 800px;
             margin-top: 20px;
-        }
-        .main-content {
-            flex: 3;
             padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .sidebar {
-            flex: 1;
-            padding: 20px;
+        .notification {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
         }
-        .sidebar canvas {
-            width: 100%;
-            height: 400px;
+        .notification:last-child {
+            border-bottom: none;
         }
-        .welcomeMessage {
-            text-align: center;
+        .notification .date {
+            font-weight: bold;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Welcome to Budget Buddy</h1>
+        <h1>Notifications</h1>
     </div>
     <div class="container">
         <ul class="menu">
-            <li><a href="#" onclick="window.location.reload();">Home</a></li>
+            <li><a href="dashboard.html" onclick="window.location.reload();">Home</a></li>
             <li>
                 <a href="#">Budget</a>
                 <ul>
@@ -121,46 +119,22 @@
         </ul>
     </div>
     <div class="content">
-        <div class="main-content">
-            <h2 id="welcomeMessage">Welcome, User!</h2>
+        <div class="notification">
+            <p class="date">2024-06-01</p>
+            <p>Your June budget has been updated. Please review the changes.</p>
         </div>
-        <div class="sidebar">
-            <canvas id="expenseChart" width="600" height="400"></canvas>
+        <div class="notification">
+            <p class="date">2024-05-15</p>
+            <p>New transaction alert: $150 spent on gas.</p>
+        </div>
+        <div class="notification">
+            <p class="date">2024-05-10</p>
+            <p>Reminder: Your credit card bill is due in 5 days.</p>
+        </div>
+        <div class="notification">
+            <p class="date">2024-04-25</p>
+            <p>Your April budget has been updated. Please review the changes.</p>
         </div>
     </div>
-    <script>
-        var ctx = document.getElementById('expenseChart').getContext('2d');
-        var expenseChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                datasets: [{
-                    label: 'Expenses',
-                    data: [120, 139, 430, 519, 121, 59420, 32119, 3118, 100, 20, 21, 22],
-                    borderColor: 'red',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Expenses ($)'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Month'
-                        }
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>

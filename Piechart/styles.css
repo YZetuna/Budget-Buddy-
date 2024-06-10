@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     padding: 0;
     margin: 0;
@@ -7,4 +8,15 @@
     margin: 170px auto;
     width: 1000px;
     height: 500px;
+=======
+*{
+    padding: 0;
+    margin: 0;
+}
+.chart
+{
+    margin: 170px auto;
+    width: 1000px;
+    height: 500px;
+>>>>>>> 54477801f2f6f3967b8c5c43ec8405930fbe4d85
 }
