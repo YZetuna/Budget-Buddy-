@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "your_username";
 $password = "your_password";
-$database = "your_database_name";
+$database = "budget_buddy";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
