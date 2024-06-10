@@ -40,7 +40,10 @@ function calcResults() {
 
     // estimate next week's profit
     var estimatedProfit = total / 4
-    var estimatedProfitString = "$" + estimatedProfit
+    var estimatedProfitString = estimatedProfit.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    })
     // display next week's estimated profit
     document.getElementById("estimatedProfit").innerHTML = estimatedProfitString
 }
