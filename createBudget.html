@@ -8,14 +8,17 @@
     <script src="javascript/createbudget.js"></script>
 </head>
 <body>
-    <form class="budget-container" action="createBudget.php">
+    <form class="budget-container" action="createBudget.php" method="post">
         <p><a href="dashboard.html">Back to Dashboard</a>
             
         </p>
+        <div>
         <input type="text" id="username" name="username" placeholder="username" required>
             <input type="text" id="password" name="password" placeholder="password" required>
-        <h2>Create New Budget</h2>
+        </div>
+        
         <div class="income-container">
+            <h2>Create New Budget</h2>
             <h1>Income</h1>
             <label for="week1Income">Week 1 Income:</label>
             <input type="number" min="0" id="week1Income" name="week1Income"><br>
@@ -27,7 +30,7 @@
             <input type="number" min="0" id="week4Income" name="week4Income"><br><br>
         </div>
         <div class="expenses-container">
-            <h1>Expenses</h1>
+            <h2>Expenses</h2>
             <label for="gasExpenses">Gas Expenses</label>
             <input type="number" min="0" name="gasExpenses" id="gasExpenses">
             <label for="insurance">Insurance</label>
@@ -40,20 +43,20 @@
             <input type="number" min="0" name="mechanic" id="mechanic">
         </div>
         <div class="totals-container">
-            <h1>Totals</h1>
+            <h2>Totals</h2>
             <button type="button" id="btnResults" onclick="calcResults()">Display results</button>
-            <div>
-                <p>Gross Income:</p><blockquote id="grossIncome"></blockquote>
-            </div>
-            <div>
-                <p>Gross Expenses:</p><blockquote id="grossExpenses"></blockquote>
-            </div>
-            <div>
-                <p>Net Total:</p><blockquote id="netTotal"></blockquote>
-            </div>
-            <div>
-                <p>Estimated profit for next week:</p><blockquote id="estimatedProfit"></blockquote>
-            </div>
+                Gross Income:
+                <label for="grossIncome"></label>
+                <input id="grossIncome" name="grossIncome" readonly>
+
+                <label for="grossExpenses">Gross Expenses:</label>
+                <input id="grossExpenses" name="grossExpenses" readonly>
+
+                <label for="netTotal">Net Total:</label>
+                <input id="netTotal" name="netTotal" readonly>
+
+                <label for="netTotal">Estimated profit for next week:</label>
+                <input id="estimatedProfit" name="estimatedProfit" readonly>
         </div>
         <p><button id="btnSave">Save Budget</button></p>
     </form>

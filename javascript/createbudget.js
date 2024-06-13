@@ -13,7 +13,7 @@ function calcResults() {
         style: 'currency',
         currency: 'USD',
     })
-    document.getElementById("grossIncome").innerHTML = incomeString
+    document.getElementById("grossIncome").setAttribute('value',income)
 
     //calculate gross expenses
     var gasExpenses = Number(document.getElementById("gasExpenses").value)
@@ -27,7 +27,7 @@ function calcResults() {
         style: 'currency',
         currency: 'USD',
     })
-    document.getElementById("grossExpenses").innerHTML = expensesString
+    document.getElementById("grossExpenses").setAttribute('value', expenses)
 
     // calculate net total
     var total = income - expenses
@@ -36,7 +36,7 @@ function calcResults() {
         style: 'currency',
         currency: 'USD',
     })
-    document.getElementById("netTotal").innerHTML = totalString
+    document.getElementById("netTotal").setAttribute('value', total)
 
     // estimate next week's profit
     var estimatedProfit = total / 4
@@ -45,5 +45,5 @@ function calcResults() {
         currency: 'USD'
     })
     // display next week's estimated profit
-    document.getElementById("estimatedProfit").innerHTML = estimatedProfitString
+    document.getElementById("estimatedProfit").setAttribute('value', estimatedProfit)
 }
