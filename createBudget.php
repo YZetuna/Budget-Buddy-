@@ -15,9 +15,9 @@ if ($conn->connect_error) {
 
 $grossIncome = trim($_POST['grossIncome']);
 
-$todaysDate = date("Y-m-d");
+//$todaysDate = date("Y-m-d");
 
-$sql = "SELECT * FROM budget WHERE DateOfBudget='$todaysDate'";
+$sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE()";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -27,12 +27,12 @@ if ($result->num_rows > 0) {
     }*/
     echo "Budget already exists for this date.";
 } else {
-    $DateOfBudget = $todaysDate;
+    //$DateOfBudget = $todaysDate;
     $EstimatedProfit = trim($_POST['estimatedProfit']);
     $Expenses = trim($_POST['grossExpenses']);
     $Income = trim($_POST['grossIncome']);
     $Total = trim($_POST['netTotal']);
-    $sql = "INSERT INTO budget (DateOfBudget, EstimatedProfit, Expenses, Income, Total) VALUES ($DateOfBudget, $EstimatedProfit, $Expenses, $Income, $Total)";
+    $sql = "INSERT INTO budget (DateOfBudget, EstimatedProfit, Expenses, Income, Total) VALUES (CURDATE(), $EstimatedProfit, $Expenses, $Income, $Total)";
 
     if ($conn->query($sql) === TRUE) {
         echo "New Budget created successfully.";

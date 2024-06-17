@@ -47,12 +47,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // If no errors, insert the user into the database
     if (empty($errors)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        //I had to change this line for testing
+        $hashed_password = $password;//_hash($password, PASSWORD_DEFAULT);
+        ////////////////////////
         $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $hashed_password);
         
         if ($stmt->execute()) {
-            echo "Account created successfully.";
+            $sql = "INSERT INTO account (account_name) VALUES ('$username');";
+            if ($conn->query($sql) === TRUE) {
+                    echo "Account created successfully.";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+            
         } else {
             echo "Error: " . $stmt->error;
         }
