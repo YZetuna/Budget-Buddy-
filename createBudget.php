@@ -25,7 +25,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      /
+      
       $accountID = $row["AccountID"];
     }
         $sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE()";
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
 
     if ($result->num_rows > 0) {
         
-        echo "Budget already exists for this date.";
+        echo "Budget already exists for this date. <a href='dashboard.html'>Click here</a> to return to the dashboard.";
     } else {
         
         $EstimatedProfit = trim($_POST['estimatedProfit']);
@@ -45,7 +45,7 @@ if ($result->num_rows > 0) {
           $sql = "INSERT INTO budget (DateOfBudget, AccountID, EstimatedProfit, Expenses, Income, Total) VALUES (CURDATE(), $accountID, $EstimatedProfit, $Expenses, $Income, $Total)";
 
           if ($conn->query($sql) === TRUE) {
-              echo "New Budget created successfully.";
+              echo "New Budget created successfully. <a href='dashboard.html'>Click here</a> to return to the dashboard.";
           } else {
               echo "There was an error processing the budget. Please try again.";
           }
