@@ -13,33 +13,54 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//$grossIncome = trim($_POST['grossIncome']);
 $grossIncome = trim($_POST['grossIncome']);
 
-//$todaysDate = date("Y-m-d");
+//get accountID using username
+$accountName = trim($_POST['username']);
 
-$sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE()";
+$sql = "SELECT AccountID FROM account WHERE account_name='$accountName'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    //output data of each row
-    /*while ($row = $result->fetch_assoc()) {
-        echo "<br>DateOfBudget: ". $row['DateOfBudget']. " Income: ". $row['Income'];
-    }*/
-    echo "Budget already exists for this date.";
-} else {
-    //$DateOfBudget = $todaysDate;
-    $EstimatedProfit = trim($_POST['estimatedProfit']);
-    $Expenses = trim($_POST['grossExpenses']);
-    $Income = trim($_POST['grossIncome']);
-    $Total = trim($_POST['netTotal']);
-    $sql = "INSERT INTO budget (DateOfBudget, EstimatedProfit, Expenses, Income, Total) VALUES (CURDATE(), $EstimatedProfit, $Expenses, $Income, $Total)";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      /
+      $accountID = $row["AccountID"];
+    }
+        $sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE()";
+    $result = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New Budget created successfully.";
+    if ($result->num_rows > 0) {
+        
+        echo "Budget already exists for this date.";
     } else {
         
-    }
-}
+        $EstimatedProfit = trim($_POST['estimatedProfit']);
+        $Expenses = trim($_POST['grossExpenses']);
+        $Income = trim($_POST['grossIncome']);
+        $Total = trim($_POST['netTotal']);
+        try {
+        if (!is_null($EstimatedProfit) && !is_null($Expenses) && !is_null($Income) && !is_null($Total)) {
+          $sql = "INSERT INTO budget (DateOfBudget, AccountID, EstimatedProfit, Expenses, Income, Total) VALUES (CURDATE(), $accountID, $EstimatedProfit, $Expenses, $Income, $Total)";
 
-//$conn->close();
+          if ($conn->query($sql) === TRUE) {
+              echo "New Budget created successfully.";
+          } else {
+              echo "There was an error processing the budget. Please try again.";
+          }
+        } else {
+          echo "Please make sure all fields are filled out then try again";
+        }
+      } catch(Exception $e) {
+        echo "Please make sure all fields are filled out then try again";
+      }
+
+    }
+  } else {
+    echo "0 results";
+  }
+
+
+$conn->close();
 ?>
