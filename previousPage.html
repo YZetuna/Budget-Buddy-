@@ -18,23 +18,26 @@
     </style>
 </head>
 <body>
+    <form action="previousPage.php" method="post">
+        
     <div class="prevBudget">
+        <input type="text" id="username" name="username" placeholder="username">
         <h2 style="color: black;">Previous Budgets </h2>
         <div class="budgetList">
             <div class="budgetDate">
-                <input type="date">
+                <input type="date" id="budget1Date" name="budget1Date">
             </div>
             <h3>Budget 1:</h3>
             <!-- content for prev Budget1 -->
             <ul>
-                <li>Income:</li>
-                <li>Expenses:</li>
-                <li>Total Profit:</li>
+                <li id="budget1Income" name="budget1Income" >Income:</li>
+                <li id="budget1Expenses" name="budget1Expenses">Expenses:</li>
+                <li id="budget1Profit" name="budget1Profit">Total Profit:</li>
             </ul>
         </div>
         <div class="budgetList">
             <div class="budgetDate">
-                <input type="date">
+                <input type="date" id="budget2Date" name="budget2Date">
             </div>
             <h3>Budget 2:</h3>
             <!-- content for prev Budget -->
@@ -74,7 +77,9 @@
                     <li>Total Profit:</li>
                 </ul>
             </div>
-        </div>
+        </div><br>
+        <button>Submit</button>
     </div>
+</form>
 </body>
 </html>
