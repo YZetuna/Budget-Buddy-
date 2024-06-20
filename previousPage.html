@@ -1,57 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previous Budgets</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link of CSS file -->
+    <style>
+        /* Additional CSS for positioning the date selector */
+        .budgetList, .compareBudget1, .compareBudget2 {
+            position: relative; /* Ensure relative positioning for child elements */
+        }
+        .budgetDate {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
-
 <body>
-   
     <div class="prevBudget">
         <h2 style="color: black;">Previous Budgets </h2>
-            <div class="budgetList">
-                <h3>Budget 1:</h3>
-                <!-- content for prev Budget1 -->
-                <ul>Income:</ul>
-                <ul>Expenses:</ul>
-                <ul>Total Profit:</ul>
-                    
+        <div class="budgetList">
+            <div class="budgetDate">
+                <input type="date">
+            </div>
+            <h3>Budget 1:</h3>
+            <!-- content for prev Budget1 -->
+            <ul>
+                <li>Income:</li>
+                <li>Expenses:</li>
+                <li>Total Profit:</li>
+            </ul>
+        </div>
+        <div class="budgetList">
+            <div class="budgetDate">
+                <input type="date">
+            </div>
+            <h3>Budget 2:</h3>
+            <!-- content for prev Budget -->
+            <ul>
+                <li>Income:</li>
+                <li>Expenses:</li>
+                <li>Total Profit:</li>
+            </ul>
+        </div>
+        <p><a href="createBudget.html">Create a New Budget</a></p>
+    </div>
+
+    <div class="compareBudget">
+        <h2 style="color: black;">Budget Comparison</h2>
+        <div class="budgetContainer">
+            <div class="compareBudget1">
+                <div class="budgetDate">
+                    <input type="date">
+                </div>
+                <h3>Budget 1 Week Ago:</h3>
+                <!-- content for Budget 1 here -->
+                <ul>
+                    <li>Income:</li>
+                    <li>Expenses:</li>
+                    <li>Total Profit:</li> 
                 </ul>
             </div>
-            <div class="budgetList">
-                <h3>Budget 2: </h3>
-                <!-- content for prev Budget -->
-                <ul>Income:</ul>
-                <ul>Expenses:</ul>
-                <ul>Total Profit:</ul>
-            </div>    
-            <p><a href="createBudget.html">Create a New Budget </a></p>
-
-        </div>                     
-   </div>
-
-   <div class="compareBudget">
-    <h2 style="color: black;">Budget Comparison</h2>
-    <div class="budgetContainer">
-        <div class= "compareBudget1">
-            <h3>Budget 1 Week Ago:</h3>
-            <!-- content for Budget 1 here -->
-            <ul>Income:</ul>
-            <ul>Expenses:</ul>
-            <ul>Total Profit:</ul> 
-        </div>
-        <div class="compareBudget2">
-            <h3>Budget 2 Weeks Ago:</h3>
-            <!-- content for Budget 2 here -->
-            <ul>Income:</ul>
-            <ul>Expenses:</ul>
-            <ul>Total Profit:</ul>
+            <div class="compareBudget2">
+                <div class="budgetDate">
+                    <input type="date">
+                </div>
+                <h3>Budget 2 Weeks Ago:</h3>
+                <!-- content for Budget 2 here -->
+                <ul>
+                    <li>Income:</li>
+                    <li>Expenses:</li>
+                    <li>Total Profit:</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 </body>
-
 </html>
