@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,7 +125,7 @@
     </div>
     <div class="content">
         <div class="main-content">
-            <h2 id="welcomeMessage">Welcome, User!</h2>
+            <h2><?php echo "Welcome " . $_SESSION["Username"];?>!<h2 id="welcomeMessage"></h2></h2>
         </div>
         <div class="sidebar">
             <canvas id="expenseChart" width="600" height="400"></canvas>

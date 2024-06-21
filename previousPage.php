@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database configuration
 $servername = "localhost";
 $username = "root";
@@ -14,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // get data from form input
-$userName = trim($_POST['username']);
+$userName = $_SESSION["Username"];
 $budget1Date = trim($_POST['budget1Date']);
 $budget2Date = trim($_POST['budget2Date']);
 
@@ -39,7 +40,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     
-    echo "success!";
+    
     if ($result = $conn->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             // set variables for the first budget
@@ -67,7 +68,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     
-    echo "success!";
+    
     if ($result = $conn->query($sql)) {
         while ($row = $result->fetch_assoc()) {
             // set variables for the first budget
@@ -112,7 +113,7 @@ if ($result->num_rows > 0) {
                 <form action='previousPage.php' method='post'>
                     
                 <div class='prevBudget'>
-                    <input type='text' id='username' name='username' placeholder='username' required>
+                    
                     <h2 style='color: black;'>Previous Budgets </h2>
                     <div class='budgetList'>
                         <div class='budgetDate'>

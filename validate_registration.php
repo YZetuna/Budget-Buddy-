@@ -13,6 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//session.start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize form data
     $username = trim($_POST['username']);
@@ -60,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Error: " . $stmt->error;
             }
+            // set session variables
+            //$_SESSION['username'] = $username;
             
         } else {
             echo "Error: " . $stmt->error;

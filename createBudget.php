@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 // Database configuration
 $servername = "localhost";
 $username = "root";
@@ -17,7 +19,7 @@ if ($conn->connect_error) {
 $grossIncome = trim($_POST['grossIncome']);
 
 //get accountID using username
-$accountName = trim($_POST['username']);
+$accountName = $_SESSION["Username"];
 
 $sql = "SELECT AccountID FROM account WHERE account_name='$accountName'";
 $result = $conn->query($sql);
@@ -45,7 +47,8 @@ if ($result->num_rows > 0) {
           $sql = "INSERT INTO budget (DateOfBudget, AccountID, EstimatedProfit, Expenses, Income, Total) VALUES (CURDATE(), $accountID, $EstimatedProfit, $Expenses, $Income, $Total)";
 
           if ($conn->query($sql) === TRUE) {
-              echo "New Budget created successfully. <a href='dashboard.html'>Click here</a> to return to the dashboard.";
+              echo "New Budget created successfully. <a href='dashboard.php'>Click here</a> to return to the dashboard.";
+              echo $_SESSION["Username"];
           } else {
               echo "There was an error processing the budget. Please try again.";
           }

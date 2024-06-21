@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -10,6 +12,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//ssession.start();
+
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
@@ -19,9 +23,9 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Login successful
-    //session_start();
-    //$_SESSION['username'] = $username;
-    header("Location: dashboard.html"); // Redirect to the dashboard or home page
+    /*session_start();*/
+    $_SESSION["Username"] = $username;
+    header("Location: dashboard.php"); // Redirect to the dashboard or home page
     exit();
 } else {
     // Login failed

@@ -3,32 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link of CSS file -->
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        .menu > li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+        }
+        .menu > li > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu > li > ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .menu > li:hover > ul {
+            display: block;
+        }
+        .menu > li > ul > li {
+            margin: 5px 0;
+        }
+        .menu > li > ul > li > a {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+        }
+        .menu > li > ul > li > a:hover {
+            background-color: #ccc;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .notification {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .notification:last-child {
+            border-bottom: none;
+        }
+        .notification .date {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Notifications</h1>
+    </div>
     <div class="container">
-        <p><a href="login.html">Back to Login</a></p>
-        <h2>User Registration</h2>
-        <form id="registrationForm" action="validate_registration.php" method="POST">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-            <button type="submit">Register</button>
-        </form>
+        <ul class="menu">
+            <li><a href="dashboard.php" onclick="window.location.reload();">Home</a></li>
+            <li>
+                <a href="#">Budget</a>
+                <ul>
+                    <li><a href="#">Current Budget</a></li>
+                    <li><a href="#">Previous Budgets</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="Calendar/index.html">Calendar</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="notification">
+            <p class="date">2024-06-01</p>
+            <p>Your June budget has been updated. Please review the changes.</p>
+        </div>
+        <div class="notification">
+            <p class="date">2024-05-15</p>
+            <p>New transaction alert: $150 spent on gas.</p>
+        </div>
+        <div class="notification">
+            <p class="date">2024-05-10</p>
+            <p>Reminder: Your credit card bill is due in 5 days.</p>
+        </div>
+        <div class="notification">
+            <p class="date">2024-04-25</p>
+            <p>Your April budget has been updated. Please review the changes.</p>
+        </div>
     </div>
 </body>
 </html>
