@@ -6,8 +6,121 @@
     <title>Create Budget</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link of CSS file -->
     <script src="javascript/createbudget.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .container2 {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        .menu > li {
+            display: inline-block;
+            margin-right: 20px;
+            position: relative;
+        }
+        .menu > li > a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu > li > ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .menu > li:hover > ul {
+            display: block;
+        }
+        .menu > li > ul > li {
+            margin: 5px 0;
+        }
+        .menu > li > ul > li > a {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+        }
+        .menu > li > ul > li > a:hover {
+            background-color: #ccc;
+        }
+        .content {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+        }
+        .sidebar canvas {
+            width: 100%;
+            height: 400px;
+        }
+        .welcomeMessage {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Create a New Budget</h1>
+    </div>
+    <div class="container2">
+        <ul class="menu">
+            <li><a href="dashboard.php" onclick="window.location.reload();">Home</a></li>
+            <li>
+                <a href="#">Budget</a>
+                <ul>
+                    <li><a href="createBudget.html">Create Budget</a></li>
+                    <li><a href="previousPage.html">Previous Budgets</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li><a href="Calendar/index.html">Calendar</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Logout.html">Logout</a></li>
+        </ul>
+    </div>
+    
     <form class="budget-container" action="createBudget.php" method="post">
         <p>
             <a href="dashboard.php">Back to Dashboard</a>
