@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previous Budgets</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Link of CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     <style>
         /* Additional CSS for positioning the date selector */
-        .budgetList, .compareBudget1, .compareBudget2 {
+        .budgetList, .compareBudget1, .compareBudget2, .compareBudget3 {
             position: relative; /* Ensure relative positioning for child elements */
         }
         .budgetDate {
@@ -129,67 +130,95 @@
         </ul>
     </div>
     <form action="previousPage.php" method="post">
-        
-    <div class="prevBudget">
-        <!--<input type="text" id="username" name="username" placeholder="username" required>-->
-        <h2 style="color: black;">Previous Budgets </h2>
-        <div class="budgetList">
-            <div class="budgetDate">
-                <input type="date" id="budget1Date" name="budget1Date" required>
-            </div>
-            <h3>Budget 1:</h3>
-            <!-- content for prev Budget1 -->
-            <ul>
-                <li id="budget1Income" name="budget1Income" >Income:</li>
-                <li id="budget1Expenses" name="budget1Expenses">Expenses:</li>
-                <li id="budget1Profit" name="budget1Profit">Total Profit:</li>
-            </ul>
-        </div>
-        <div class="budgetList">
-            <div class="budgetDate">
-                <input type="date" id="budget2Date" name="budget2Date" required>
-            </div>
-            <h3>Budget 2:</h3>
-            <!-- content for prev Budget -->
-            <ul>
-                <li>Income:</li>
-                <li>Expenses:</li>
-                <li>Total Profit:</li>
-            </ul>
-        </div>
-        <p><a href="createBudget.html">Create a New Budget</a></p>
-    </div>
-
-    <div class="compareBudget">
-        <h2 style="color: black;">Budget Comparison</h2>
-        <div class="budgetContainer">
-            <div class="compareBudget1">
+        <div class="prevBudget">
+            <!--<input type="text" id="username" name="username" placeholder="username" required>-->
+            <h2 style="color: black;">Previous Budgets </h2>
+            <div class="budgetList">
                 <div class="budgetDate">
-                    <input type="date">
+                    <input type="date" id="budget1Date" name="budget1Date" required>
                 </div>
-                <h3>Budget 1 Week Ago:</h3>
-                <!-- content for Budget 1 here -->
+                <h3>Budget 1:</h3>
+                <!-- content for prev Budget1 -->
                 <ul>
-                    <li>Income:</li>
-                    <li>Expenses:</li>
-                    <li>Total Profit:</li> 
+                    <li id="budget1Income" name="budget1Income">Income:</li>
+                    <li id="budget1Expenses" name="budget1Expenses">Expenses:</li>
+                    <li id="budget1Profit" name="budget1Profit">Total Profit:</li>
                 </ul>
             </div>
-            <div class="compareBudget2">
+            <div class="budgetList">
                 <div class="budgetDate">
-                    <input type="date">
+                    <input type="date" id="budget2Date" name="budget2Date" required>
                 </div>
-                <h3>Budget 2 Weeks Ago:</h3>
-                <!-- content for Budget 2 here -->
+                <h3>Budget 2:</h3>
+                <!-- content for prev Budget -->
                 <ul>
                     <li>Income:</li>
                     <li>Expenses:</li>
                     <li>Total Profit:</li>
                 </ul>
             </div>
-        </div><br>
+            <p><a href="createBudget.html">Create a New Budget</a></p>
+        </div>
+
+        <div class="compareBudget">
+            <h2 style="color: black;">Budget Comparison</h2>
+            <div class="budgetContainer">
+                <div class="compareBudget1">
+                    <!-- Removed date input -->
+                    <h3>Difference in Income</h3>
+                    <!-- Income Difference goes here -->
+                    $
+                </div>
+                <div class="compareBudget2">
+                    <!-- Removed date input -->
+                    <h3>Difference in Expenses</h3>
+                    <!-- Expenses Difference goes here -->
+                    $
+                </div>
+                <div class="compareBudget3">
+                    <!-- Removed date input -->
+                    <h3>Difference in Total Profit</h3>
+                    <!-- Total Profit Difference goes here-->
+                    $
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+        
         <button>Submit</button>
-    </div>
-</form>
+    </form>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October','November','December'],
+                    datasets: [{
+                        label: 'Income Trend',
+                        data: [12000, 15000, 17000, 14000, 18000, 19000, 20000, 10000, 12000, 5000, 2000, 7000], //This is fixed data, Take data from database into here
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
