@@ -9,6 +9,7 @@
     <title>Main Menu</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="javascript/dashboard.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,6 +99,79 @@
         .welcomeMessage {
             text-align: center;
         }
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+        .mySlides img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .numbertext {
+            position: absolute;
+            top: 0;
+            color: #f2f2f2;
+            font-size: 20px;
+            padding: 8px 12px;
+            background-color: #333;
+        }
+        .text {
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* Dots/circles style */
+        .dot-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
     </style>
 </head>
 <body>
@@ -126,44 +200,104 @@
     <div class="content">
         <div class="main-content">
             <h2><?php echo "Welcome " . $_SESSION["Username"];?>!<h2 id="welcomeMessage"></h2></h2>
-        </div>
-        <div class="sidebar">
-            <canvas id="expenseChart" width="600" height="400"></canvas>
+
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="images/temp truck.jpeg" alt="Truck 1">
+                    <div class="text">Truck 1</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="images/temp truck.jpeg" alt="Truck 2">
+                    <div class="text">Truck 2</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="images/temp truck.jpeg" alt="Truck 3">
+                    <div class="text">Truck 3</div>
+                </div>
+
+                <!-- Previous and Next buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+            <br>
+
+            <!-- Dot container -->
+            <div class="dot-container" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+
         </div>
     </div>
     <script>
-        var ctx = document.getElementById('expenseChart').getContext('2d');
-        var expenseChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                datasets: [{
-                    label: 'Expenses',
-                    data: [120, 139, 430, 519, 121, 59420, 32119, 3118, 100, 20, 21, 22],
-                    borderColor: 'red',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Expenses ($)'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Month'
-                        }
-                    }
-                }
-            }
-        });
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+
+    // Automatic slideshow
+    var slideIndexAuto = 0;
+    var timeout;
+
+    function autoShowSlides() {
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndexAuto++;
+        if (slideIndexAuto > slides.length) {slideIndexAuto = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndexAuto-1].style.display = "block";  
+        dots[slideIndexAuto-1].className += " active";
+        timeout = setTimeout(autoShowSlides, 5000); // Change image every 5 seconds
+    }
+
+    autoShowSlides(); // Start automatic slideshow on page load
+
+    function pauseSlides() {
+        clearTimeout(timeout); // Pause automatic slideshow
+    }
+
+    function resumeSlides() {
+        autoShowSlides(); // Resume automatic slideshow
+    }
+
     </script>
 </body>
 </html>
