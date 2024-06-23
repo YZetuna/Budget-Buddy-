@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 
     if ($result->num_rows > 0) {
         
-        echo "Budget already exists for this date. <a href='dashboard.html'>Click here</a> to return to the dashboard.";
+        echo "Budget already exists for this date. <a href='dashboard.php'>Click here</a> to return to the dashboard.";
     } else {
         
         $EstimatedProfit = trim($_POST['estimatedProfit']);
