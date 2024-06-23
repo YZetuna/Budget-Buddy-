@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 
           if ($conn->query($sql) === TRUE) {
               echo "New Budget created successfully. <a href='dashboard.php'>Click here</a> to return to the dashboard.";
-              echo $_SESSION["Username"];
+              //echo $_SESSION["Username"];
           } else {
               echo "There was an error processing the budget. Please try again.";
           }
