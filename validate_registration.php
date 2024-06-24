@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             $sql = "INSERT INTO account (account_name) VALUES ('$username');";
             if ($conn->query($sql) === TRUE) {
-                    echo "Account created successfully.";
+                    echo "Account created successfully. <a href='login.html'>Click here</a> to login in.";
             } else {
                 echo "Error: " . $stmt->error;
             }
