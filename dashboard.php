@@ -188,8 +188,8 @@
                     <li><a href="previousPage.html">Previous Budgets</a></li>
                 </ul>
             </li>
-            <li><a href="#">Transactions</a></li>
-            <li><a href="#">Accounts</a></li>
+            <!--<li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>-->
             <li><a href="about.html">About</a></li>
             <li><a href="notifications.html">Notifications</a></li>
             <li><a href="Calendar/index.html">Calendar</a></li>
