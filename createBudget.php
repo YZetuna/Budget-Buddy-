@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
       
       $accountID = $row["AccountID"];
     }
-        $sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE()";
+        $sql = "SELECT * FROM budget WHERE DateOfBudget=CURDATE() AND AccountID=$accountID";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
