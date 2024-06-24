@@ -99,11 +99,14 @@
         .welcomeMessage {
             text-align: center;
         }
+        .welcome-container {
+            text-align: center;
+        }
         /* Slideshow styles */
         .slideshow-container {
             position: relative;
             max-width: 100%;
-            max-height: 400px;
+            max-height: 600px;
             overflow: hidden;
             margin-top: 20px;
         }
@@ -112,6 +115,7 @@
             width: 100%;
         }
         .mySlides img {
+            border: 5px solid #555;
             width: 100%;
             vertical-align: middle;
         }
@@ -188,8 +192,6 @@
                     <li><a href="previousPage.html">Previous Budgets</a></li>
                 </ul>
             </li>
-            <!--<li><a href="#">Transactions</a></li>
-            <li><a href="#">Accounts</a></li>-->
             <li><a href="about.html">About</a></li>
             <li><a href="notifications.html">Notifications</a></li>
             <li><a href="Calendar/index.html">Calendar</a></li>
@@ -199,28 +201,35 @@
     </div>
     <div class="content">
         <div class="main-content">
-            <h2><?php echo "Welcome " . $_SESSION["Username"];?>!<h2 id="welcomeMessage"></h2></h2>
-
+            <div class="welcome-container">
+                <h2><?php echo "Welcome " . $_SESSION["Username"];?>!<h2 id="welcomeMessage"></h2></h2>
+            </div>
             <!-- Slideshow container -->
             <div class="slideshow-container">
 
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="images/temp truck.jpeg" alt="Truck 1">
+                    <div class="numbertext">1 / 4</div>
+                    <img src="images/freight1.jpg" alt="Truck 1">
                     <div class="text">Truck 1</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="images/temp truck.jpeg" alt="Truck 2">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="images/freight2.jpg" alt="Truck 2">
                     <div class="text">Truck 2</div>
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img src="images/temp truck.jpeg" alt="Truck 3">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="images/freight3.jpg" alt="Truck 3">
                     <div class="text">Truck 3</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="images\frieght4.jpg" alt="Truck 4">
+                    <div class="text">Truck 4</div>
                 </div>
 
                 <!-- Previous and Next buttons -->
@@ -235,6 +244,7 @@
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
             </div>
 
         </div>
