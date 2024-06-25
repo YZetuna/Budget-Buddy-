@@ -277,14 +277,14 @@ $finalTotal = $total1 - $total2;
             </div>
         </div>
         
-        <div class='chart'>
+        <!--<div class='chart'>
             <canvas id='myChart'></canvas>
-        </div>
+        </div>-->
         
         <button>Submit</button>
     </form>
     
-    <script>
+    <!--<script>
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('myChart').getContext('2d');
             const myChart = new Chart(ctx, {
@@ -312,7 +312,7 @@ $finalTotal = $total1 - $total2;
                 }
             });
         });
-    </script>
+    </script>-->
 </body>
 </html>
 ";
